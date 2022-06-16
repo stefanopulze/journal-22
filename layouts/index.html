@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 <section class="container posts">
-    {{ range where .Site.RegularPages "Type" "post" }}
+    {{ range where .Site.RegularPages "Type" "posts" }}
     {{ partial "post.html" . }}
     {{ end }}
 </section>
