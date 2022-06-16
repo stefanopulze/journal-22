@@ -28,3 +28,7 @@
 
 {{ $js := resources.Get "js/main.js" | js.Build }}
 <script type="text/javascript" src="{{ $js.RelPermalink }}" defer></script>
+
+{{ if hugo.IsProduction }}
+{{ template "_internal/google_analytics.html" . }}
+{{ end }}
