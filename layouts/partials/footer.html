@@ -1,0 +1,30 @@
+<footer class="footer">
+    <div class="container">
+        <div class="socials">
+            {{ range .Site.Params.socials }}
+            <a href="{{.link}}?rel=stefanopulze.com" title="{{.name}}" target="_blank">
+                {{ $svgFile := printf "static/icons/%s.svg" .name }}
+                {{ readFile $svgFile | safeHTML }}
+            </a>
+            {{ end }}
+        </div>
+    </div>
+</footer>
+
+<script>
+    const styles = [
+        'font-size: 24px',
+        'font-family: monospace',
+        'background: white',
+        'display: inline-block',
+        'color: black',
+        'padding: 8px 19px',
+        'border: 1px dashed',
+    ].join(';')
+
+    console.log('%c Hi dude! 👋', styles);
+    console.log('%c I\'m available for new jobs', 'font-size: 14px')
+</script>
+
+{{ $js := resources.Get "js/main.js" | js.Build }}
+<script type="text/javascript" src="{{ $js.RelPermalink }}" defer></script>

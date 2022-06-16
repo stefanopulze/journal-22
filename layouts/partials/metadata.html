@@ -1,0 +1,30 @@
+{{ $dateTime := .PublishDate.Format "2006-01-02" }}
+{{ $dateFormat := .Site.Params.dateFormat | default "02. Jan, 2006" }}
+
+{{ $author := .Site.Params.post.author }}
+{{ if .Param "author" }}
+    {{ $author = .Param "author" }}
+{{ end }}
+
+
+<div class="post-metadata">
+    <div>
+        <b>Autore</b>
+        <p>{{ $author }}</p>
+    </div>
+
+    <div>
+        <b>Date</b>
+        <p><time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time></p>
+    </div>
+
+    <div>
+        <b>Tas</b>
+        <ul class="tags">
+            {{ range .Param "tags" }}
+            <li class="tag"><a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">#{{ . }}</a> </li>
+            {{ end }}
+        </ul>
+
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<header class="header">
+    <div>
+        <a href="{{ .Site.Params.parentURL }}" title="{{ .Site.Params.parentTitle }}" class="nav-link is-title">
+            <div class="circle-avatar">
+                <img src="/images/me-yellow.webp" alt="{{ .Site.Title }}">
+            </div>
+        </a>
+
+        {{ range .Site.Menus.main }}
+        <a class="nav-link" href="{{ .URL | absLangURL }}">
+            {{ $text := print .Name | safeHTML }}
+            {{ $text }}
+        </a>
+        {{ end }}
+    </div>
+
+    <div>
+        {{ range where .Site.Params.socials "kind" "menu" }}
+        <a class="nav-link is-hide-mobile" href="{{ .link }}" title="{{ .name }}">
+            {{ $svgFile := printf "static/icons/%s.svg" .name }}
+            {{ readFile $svgFile | safeHTML }}
+        </a>
+        {{ end }}
+
+        <div class="nav-link toggle-theme-style">
+        {{ readFile "static/icons/sun.svg" | safeHTML }}
+        </div>
+    </div>
+</header>

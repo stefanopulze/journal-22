@@ -1,0 +1,27 @@
+<head>
+    {{ $title := print .Site.Title " | " .Title }}
+    {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="description" content="{{ .Site.Params.meta.description }}">
+    <meta name="keywords" content="{{ .Site.Params.meta.keywords }}">
+    <meta name="author" content="{{ .Site.Params.meta.author }}">
+    <meta property="og:title" content="{{ $title }}">
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    <meta property="og:url" content="https://www.stefanopulze.com/">
+    <meta property="og:image" content="http://www.stefanopulze.com/public/images/fb-image.jpg">
+    <meta property="og:description" content="{{ .Site.Params.meta.description }}">
+    <title>{{ $title }}</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/fav/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    {{ $style := resources.Get "css/main.scss" | toCSS }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+
+    <script src="https://kit.fontawesome.com/8c938d1a34.js" crossorigin="anonymous"></script>
+</head>

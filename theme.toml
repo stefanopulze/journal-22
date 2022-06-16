@@ -1,0 +1,17 @@
+name = "Journal-22"
+license = "MIT"
+licenselink = "https://github.com/stefanopulze/journal-22/blob/master/LICENSE"
+description = "Hugo journal theme for 2022"
+homepage = "https://stefanopulze.com/"
+tags = ['blog', 'journal', 'portfolio']
+features = []
+min_version = "0.41.0"
+
+[author]
+name = "Stefano Pulze"
+homepage = "stefanopulze.com"
+
+[original]
+name = ""
+homepage = ""
+repo = ""

@@ -1,0 +1,11 @@
+{{ define "main" }}
+
+<section class="container posts">
+    {{ range where .Site.RegularPages "Type" "post" }}
+    {{ partial "post.html" . }}
+    {{ end }}
+</section>
+
+{{ .Content }}
+
+{{ end }}

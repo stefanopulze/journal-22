@@ -1,0 +1,78 @@
+$border-radius: 6px;
+$window-action: #444;
+
+.highlight {
+  .code-header {
+    background: var(--highlight-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: $border-radius $border-radius 0 0;
+    height: 2.25rem;
+    padding: .5rem;
+  }
+
+  .code-header::before {
+    content: "";
+    display: inline-block;
+    margin-left: .5rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background-color: $window-action;
+    box-shadow: 1.25rem 0 0 $window-action, 2.5rem 0 0 $window-action;
+  }
+
+  .code-header, .clipboard-button {
+    color: var(--button-text);
+  }
+
+  .code-lang {
+    font-size: .85rem;
+
+    i {
+      font-size: 90%;
+    }
+
+    &::after {
+      padding-left: 5px;
+      content: attr(data-lang);
+      font-weight: 600;
+    }
+  }
+
+  .clipboard-button {
+    font-size: 1em;
+    border: none;
+    padding: 6px;
+    background: inherit;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+      color: var(--button);
+    }
+
+    &:after {
+      display: none;
+      width: 100px;
+      content: '🎉 copied';
+      position: absolute;
+      top: 2px;
+      font-size: .9rem;
+      transition: all .3s ease-in-out;
+      transform: translateX(-110px);
+    }
+
+    &.copied:after {
+      display: inline-block;
+    }
+  }
+
+  pre {
+    padding: .5rem 1rem 1rem 1rem;
+    margin: 0;
+    border-radius: 0 0 $border-radius $border-radius;
+    overflow-y: auto;
+  }
+}
