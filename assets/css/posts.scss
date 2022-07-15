@@ -54,9 +54,14 @@
   font-size: 1rem;
 }
 
+.post-content a {
+  text-decoration: underline;
+}
+
 h1.post-title {
   font-size: 3em;
   margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 ul.tags {

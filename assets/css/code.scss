@@ -2,6 +2,8 @@ $border-radius: 6px;
 $window-action: #444;
 
 .highlight {
+  margin-bottom: 2em;
+
   .code-header {
     background: var(--highlight-bg-color);
     display: flex;
