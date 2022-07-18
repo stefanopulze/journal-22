@@ -24,4 +24,9 @@
     <link rel="stylesheet" href="{{ $style.Permalink }}">
 
     <script src="https://kit.fontawesome.com/8c938d1a34.js" crossorigin="anonymous"></script>
+
+    {{ if hugo.IsProduction }}
+    <script defer src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.8.0/dist/cookieconsent.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.8.2/dist/cookieconsent.css">
+    {{ end }}
 </head>

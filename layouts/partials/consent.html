@@ -1,0 +1,46 @@
+<script>
+    window.addEventListener('load', () => {
+        const cc = initCookieConsent();
+
+        cc.run({
+            current_lang: '{{.Site.Language.Lang}}',
+            autoclear_cookies: true,                   // default: false
+            page_scripts: true,
+            auto_language: true,
+            languages: {
+                '{{.Site.Language.Lang}}': {
+                    consent_modal: {
+                        title: '{{ i18n "cookieTitle" }}',
+                        description: '{{ i18n "cookieDescription" }}',
+                        primary_btn: {
+                            text: '{{ i18n "cookieAcceptAll"}}',
+                            role: 'accept_all'
+                        },
+                        secondary_btn: {
+                            text: '{{ i18n "cookieRejectAll"}}',
+                            role: 'accept_necessary'
+                        }
+                    },
+                    settings_modal: {
+                        title: 'Cookie preferences',
+                        save_settings_btn: 'Save settings',
+                        accept_all_btn: '{{ i18n "cookieAcceptAll"}}',
+                        reject_all_btn: '{{ i18n "cookieAcceptAll"}}',
+                        close_btn_label: 'Close',
+                        cookie_table_headers: [],
+                        blocks: [{
+                            title: 'Analytics & Performance cookies',
+                            description: 'Analytics',
+                            toggle: {
+                                value: 'analytics',
+                                enabled: false,
+                                readonly: false
+                            },
+                            cookie_table: []
+                        }]
+                    }
+                },
+            }
+        })
+    });
+</script>
