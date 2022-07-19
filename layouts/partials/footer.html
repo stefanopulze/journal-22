@@ -3,7 +3,8 @@
         <div class="socials">
             {{ range .Site.Params.socials }}
             <a href="{{.link}}?rel=stefanopulze.com" title="{{.name}}" target="_blank">
-                {{ $svgFile := printf "static/icons/%s.svg" .name }}
+                {{ $svgName := lower .name }}
+                {{ $svgFile := printf "static/icons/%s.svg" $svgName }}
                 {{ readFile $svgFile | safeHTML }}
             </a>
             {{ end }}
